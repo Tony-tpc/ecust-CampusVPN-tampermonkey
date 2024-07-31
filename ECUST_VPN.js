@@ -53,7 +53,7 @@
     document.body.appendChild(button);
 
 
-
+    //此处基于https://www.ecustvr.top/vpn.html编写
     function convertUrl() {
         var inputUrl = window.location.href;
         var convertedUrl = "https://"; // 默认以https开头
