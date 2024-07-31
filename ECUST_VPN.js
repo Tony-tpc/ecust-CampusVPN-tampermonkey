@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Ecust_Vpn
 // @namespace    http://tampermonkey.net/
-// @version      2024-03-10
-// @description  try to take over the world!
-// @author       You
+// @version      2024-07-31
+// @description  skipping to sslvpn
+// @author       Tonytpc
 // @match        https://*.ecust.edu.cn/*
 // @icon         data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==
 // @grant        none
@@ -88,30 +88,4 @@
         window.location.href = convertedUrl;
     }
 
-    // function ini_div() {
-    //     let Container = document.createElement('div');
-    //     $('.Container').css({
-    //         "display": "inline-block",
-    //         "flex": "none",
-    //         "outline": "0",
-    //         "cursor": "pointer",
-    //         "font-weight": "inherit",
-    //         "line-height": "1.5",
-    //         "text-align": "center",
-    //         "vertical-align": "middle",
-    //         "border-radius": "3px",
-    //         "border": "1px solid",
-    //         "font-size": ".875em",
-    //         "padding": ".313em 1em",
-    //         "border-color": "rgb(52, 152, 219)",
-    //         "background-color": "rgb(52, 152, 219)",
-
-    //     })
-    //     Container.innerHTML = `<button type="button" > 传送至 cph </button>`;
-    //     document.body.appendChild(Container);
-    //     Container.onclick = convertUrl();
-
-    // }
-    // ini_div();
 })();
-//$('.dropbox').css({"display":"none","padding":"10px","width":"400px","height":"200px","font-size":"16px","font-weight":"bold","color":"#fff"})
