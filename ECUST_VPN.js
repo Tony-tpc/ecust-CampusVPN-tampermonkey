@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Ecust_Vpn
-// @namespace    http://tampermonkey.net/
-// @version      2024-07-31
+// @namespace    https://github.com/Tony-tpc
+// @version      2.1
 // @description  skipping to sslvpn
 // @author       Tonytpc
 // @match        https://*.ecust.edu.cn/*
@@ -9,10 +9,11 @@
 // @grant        none
 // @exclude      https://*.sslvpn.ecust.edu.cn:8118/*
 // @exclude      https://sslvpn.ecust.edu.cn/*
+// @license MIT
 // ==/UserScript==
-
+ 
 (function () {
-
+ 
     var styles = `
     #myStyledButton {
         display:inline-block;
@@ -43,28 +44,28 @@
     styleSheet.type = "text/css";
     styleSheet.innerText = styles;
     document.head.appendChild(styleSheet);
-
+ 
     var button = document.createElement('button');
     button.innerHTML = ' 校园VPN ';
     button.id = 'myStyledButton';
-
+ 
     // 设置按钮的点击事件
     button.onclick = convertUrl;
     document.body.appendChild(button);
-
-
+ 
+ 
     //此处基于https://www.ecustvr.top/vpn.html编写
     function convertUrl() {
         var inputUrl = window.location.href;
         var convertedUrl = "https://"; // 默认以https开头
         var isHttps = false; // 标记是否是https
         var isPort = false; // 标记是否存在端口号
-
+ 
         // 检查是否存在端口号
         if (inputUrl.match(/:\d+\//)) {
             isPort = true;
         }
-
+ 
         if (inputUrl === "") {
             convertedUrl += "请输入有效的URL";
         } else {
@@ -78,7 +79,7 @@
                     var port = inputUrl.match(/:(\d+)\//)[1];
                     path = path.replace(":" + port + "/", "-" + port + "-p");
                 }
-
+ 
                 convertedUrl += domain + (isPort ? "-p" : "") + (isHttps ? "-s" : "") + ".sslvpn.ecust.edu.cn:8118" + path;
             } else {
                 convertedUrl += "请输入有效的URL";
@@ -87,5 +88,5 @@
         // 获取显示结果的元素
         window.location.href = convertedUrl;
     }
-
+ 
 })();
